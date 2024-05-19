@@ -72,11 +72,46 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add event listener for the search bar
             document.getElementById('search-bar').addEventListener('input', function (e) {
                 const searchTerm = e.target.value.toLowerCase();
+                let filteredEventIndex = 0; // To keep track of filtered event order
+
+                // Clear the current timeline, but keep the structure for the timeline line
+                timeline.innerHTML = '<div class="timeline"></div>';
+                const filteredTimeline = timeline.querySelector('.timeline');
+
                 events.forEach(event => {
                     const matches = event.headline.toLowerCase().includes(searchTerm) ||
                                     event.date.toLowerCase().includes(searchTerm);
-                    event.element.style.display = matches ? 'block' : 'none';
+                    if (matches) {
+                        // Clone the event element and update its class for alternating positions
+                        const eventElementClone = event.element.cloneNode(true);
+                        eventElementClone.classList.remove('left', 'right');
+                        eventElementClone.classList.add(filteredEventIndex % 2 === 0 ? 'right' : 'left');
+                        filteredTimeline.appendChild(eventElementClone);
+                        filteredEventIndex++;
+                    }
                 });
+
+                // If there's no search term, recreate the original timeline structure
+                if (!searchTerm) {
+                    timeline.innerHTML = '';
+                    let currentYear = '';
+                    events.forEach((event, index) => {
+                        if (currentYear !== event.year) {
+                            currentYear = event.year;
+                            const yearSection = document.createElement('section');
+                            yearSection.id = event.year;
+                            yearSection.classList.add('year');
+                            yearSection.innerHTML = `<h2>${event.year}</h2><div class="timeline"></div>`;
+                            timeline.appendChild(yearSection);
+                        }
+
+                        const yearSection = document.getElementById(event.year).querySelector('.timeline');
+                        const eventElementClone = event.element.cloneNode(true);
+                        eventElementClone.classList.remove('left', 'right');
+                        eventElementClone.classList.add(index % 2 === 0 ? 'right' : 'left');
+                        yearSection.appendChild(eventElementClone);
+                    });
+                }
             });
         })
         .catch(error => console.error('Error fetching data:', error));

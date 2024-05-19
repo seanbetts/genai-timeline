@@ -18,9 +18,22 @@ header {
     z-index: 1000;
 }
 
+img {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #search-bar {
-    width: 80%;
-    max-width: 500px;
+    width: 20em;
+    max-width: 600px;
     padding: 0.5em;
     margin: 1em auto;
     font-size: 0.8em;
@@ -141,7 +154,7 @@ main {
 
 @media (max-width: 600px) {
     header {
-        font-size: 1em;
+        font-size: 0.8em;
     }
     #search-bar {
         width: 60%;
