@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const csvUrl = 'https://raw.githubusercontent.com/your-username/your-repo-name/main/data.csv'; // Replace with the actual URL to your CSV file on GitHub
+    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv'; // Replace with the actual URL to your CSV file on GitHub
 
     fetch(csvUrl)
         .then(response => response.text())
