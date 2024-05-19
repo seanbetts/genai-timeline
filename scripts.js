@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv'; // Replace with the actual URL to your CSV file on GitHub
-
+    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv';
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
@@ -12,43 +11,53 @@ document.addEventListener('DOMContentLoaded', function () {
             let eventIndex = 0; // To keep track of event order
 
             rows.forEach(row => {
-                const [date, headline, link] = row.split(',').map(item => item.trim());
+                // Split row into date, headline, and link by matching the first and last comma
+                const regex = /([^,]+),(.+),([^,]+)$/;
+                const match = row.match(regex);
+                if (match) {
+                    const date = match[1].trim();
+                    let headline = match[2].trim();
+                    const link = match[3].trim();
 
-                // Parse the date in UK format
-                const [day, month, year] = date.split('/').map(num => parseInt(num, 10));
-                const eventDate = new Date(year, month - 1, day); // JavaScript months are 0-based
-                const formattedYear = eventDate.getFullYear();
-                const formattedMonth = eventDate.toLocaleString('default', { month: 'long' });
-                const formattedDay = eventDate.getDate();
+                    // Remove surrounding quotation marks if present
+                    if (headline.startsWith('"') && headline.endsWith('"')) {
+                        headline = headline.slice(1, -1);
+                    }
 
-                if (currentYear !== formattedYear) {
-                    currentYear = formattedYear;
-                    const yearSection = document.createElement('section');
-                    yearSection.id = formattedYear;
-                    yearSection.classList.add('year');
-                    yearSection.innerHTML = `<h2>${formattedYear}</h2><div class="timeline"></div>`;
-                    timeline.appendChild(yearSection);
+                    // Parse the date in UK format
+                    const [day, month, year] = date.split('/').map(num => parseInt(num, 10));
+                    const eventDate = new Date(year, month - 1, day); // JavaScript months are 0-based
+                    const formattedYear = eventDate.getFullYear();
+                    const formattedMonth = eventDate.toLocaleString('default', { month: 'long' });
+                    const formattedDay = eventDate.getDate();
 
-                    const navItem = document.createElement('li');
-                    navItem.innerHTML = `<a href="#${formattedYear}">${formattedYear}</a>`;
-                    navList.appendChild(navItem);
+                    if (currentYear !== formattedYear) {
+                        currentYear = formattedYear;
+                        const yearSection = document.createElement('section');
+                        yearSection.id = formattedYear;
+                        yearSection.classList.add('year');
+                        yearSection.innerHTML = `<h2>${formattedYear}</h2><div class="timeline"></div>`;
+                        timeline.appendChild(yearSection);
+
+                        const navItem = document.createElement('li');
+                        navItem.innerHTML = `<a href="#${formattedYear}">${formattedYear}</a>`;
+                        navList.appendChild(navItem);
+                    }
+
+                    const yearSection = document.getElementById(formattedYear).querySelector('.timeline');
+                    const event = document.createElement('div');
+                    event.classList.add('event');
+                    event.classList.add(eventIndex % 2 === 0 ? 'right' : 'left'); // Alternate classes
+                    event.innerHTML = `
+                        <span class="date">${formattedMonth} ${formattedDay}, ${formattedYear}</span>
+                        <p>${headline}</p>
+                        <a href="${link}" target="_blank">READ MORE</a>
+                    `;
+                    yearSection.appendChild(event);
+
+                    eventIndex++;
                 }
-
-                const yearSection = document.getElementById(formattedYear).querySelector('.timeline');
-                const event = document.createElement('div');
-                event.classList.add('event');
-                event.classList.add(eventIndex % 2 === 0 ? 'right' : 'left'); // Alternate classes
-                event.innerHTML = `
-                    <span class="date">${formattedMonth} ${formattedDay}, ${formattedYear}</span>
-                    <p>${headline}</p>
-                    <a href="${link}" target="_blank">Read more</a>
-                `;
-                yearSection.appendChild(event);
-
-                eventIndex++;
             });
         })
         .catch(error => console.error('Error fetching data:', error));
 });
-
-// https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv
