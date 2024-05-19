@@ -15,11 +15,13 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 1em;
 }
 
 nav ul li a {
@@ -28,21 +30,54 @@ nav ul li a {
 }
 
 main {
-    padding: 1em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .year {
+    width: 100%;
+    max-width: 800px;
     margin-bottom: 2em;
+    text-align: center;
 }
 
 .timeline {
-    border-left: 2px solid #333;
-    padding-left: 1em;
+    position: relative;
+    width: 100%;
+    margin: 2em 0;
+    padding: 1em 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
 }
 
 .event {
-    margin-bottom: 1em;
     position: relative;
+    width: 50%;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.event.left {
+    left: 0;
+    text-align: right;
+    padding-right: 2em;
+}
+
+.event.right {
+    left: 50%;
+    text-align: left;
+    padding-left: 2em;
 }
 
 .event .date {
@@ -60,4 +95,18 @@ main {
 
 .event a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .timeline::after {
+        left: 10%;
+    }
+    .event {
+        width: 80%;
+        text-align: left !important;
+        padding: 0 !important;
+    }
+    .event.left, .event.right {
+        left: 10% !important;
+    }
 }
