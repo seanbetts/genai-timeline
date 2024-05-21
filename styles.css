@@ -21,7 +21,6 @@ header {
 img {
     height: 100%;
     width: 50%;
-    max-width: 500px;
     display: flex;
     justify-content: center;
 }
@@ -33,8 +32,8 @@ img {
 }
 
 #search-bar {
-    width: 50%;
-    max-width: 480px;
+    width: 20em;
+    max-width: 600px;
     padding: 0.5em;
     margin: 1em auto;
     font-size: 0.8em;
@@ -75,7 +74,7 @@ nav ul li a {
 }
 
 main {
-    padding: 1em;
+    padding: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,13 +124,13 @@ main {
 .event.left {
     left: 0;
     text-align: right;
-    padding-right: 1em;
+    padding-right: 2em;
 }
 
 .event.right {
     left: 50%;
     text-align: left;
-    padding-left: 1em;
+    padding-left: 2em;
 }
 
 .event .date {
@@ -142,11 +141,10 @@ main {
     margin: 0.5em 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    color: white
 }
 
 .event a {
-    color: white;
+    color: #EA00D9;
     text-decoration: none;
     font-weight: 700;
     font-size: 16px;
