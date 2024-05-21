@@ -9,18 +9,24 @@ header {
     background-color: #1c1d1f;
     color: #EA00D9;
     font-size: 1.5em;
-    padding: 0.5em 0;
+    padding: 0.1em 0;
     text-align: center;
-    border-bottom: 1px solid #333435;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+.search {
+    padding: 0.1em 0;
+    border-top: 1px solid #333435;
+    border-bottom: 1px solid #333435;
+}
+
 img {
     height: 100%;
     width: 50%;
+    max-width: 600px;
     display: flex;
     justify-content: center;
 }
@@ -32,10 +38,10 @@ img {
 }
 
 #search-bar {
-    width: 20em;
-    max-width: 600px;
+    width: 25%;
+    max-width: 380px;
     padding: 0.5em;
-    margin: 1em auto;
+    margin: 0.5em auto;
     font-size: 0.8em;
     border: 2px solid #333435;
     border-radius: 4px;
@@ -156,10 +162,10 @@ main {
 
 @media (max-width: 600px) {
     header {
-        font-size: 0.8em;
+        font-size: 1em;
     }
     #search-bar {
-        width: 60%;
+        width: 30%;
         max-width: 400px;
     }
     .timeline::after {
