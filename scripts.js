@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(csvText => {
             const rows = csvText.split('\n').slice(1); // Split by newline and skip the header row
             const timeline = document.getElementById('timeline');
+            const noResultsMessage = document.createElement('p');
+            noResultsMessage.id = 'no-results';
+            noResultsMessage.textContent = 'No Events Found';
+            noResultsMessage.style.display = 'none';
+            timeline.parentNode.insertBefore(noResultsMessage, timeline);
 
             const events = rows.map((row, index) => {
                 let [date, headline, link] = row.split(',').map(item => item.trim());
@@ -57,12 +62,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 );
 
                 timeline.innerHTML = '<div class="timeline"></div>';
-                filteredEvents.forEach((event, index) => {
-                    const eventElementClone = event.eventElement.cloneNode(true);
-                    eventElementClone.classList.toggle('right', index % 2 === 0);
-                    eventElementClone.classList.toggle('left', index % 2 !== 0);
-                    timeline.querySelector('.timeline').appendChild(eventElementClone);
-                });
+
+                if (filteredEvents.length === 0) {
+                    noResultsMessage.style.display = 'block';
+                    timeline.style.display = 'none';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                    timeline.style.display = 'block';
+                    filteredEvents.forEach((event, index) => {
+                        const eventElementClone = event.eventElement.cloneNode(true);
+                        eventElementClone.classList.toggle('right', index % 2 === 0);
+                        eventElementClone.classList.toggle('left', index % 2 !== 0);
+                        timeline.querySelector('.timeline').appendChild(eventElementClone);
+                    });
+                }
 
                 if (!searchTerm) {
                     timeline.innerHTML = '';

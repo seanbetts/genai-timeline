@@ -160,6 +160,13 @@ main {
     text-decoration: underline;
 }
 
+#no-results {
+    font-size: 2em;
+    font-weight: bold;
+    color: #EA00D9;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     header {
         font-size: 1em;
