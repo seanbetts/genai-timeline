@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const csvUrl = 'timeline.csv'; // Update to your local CSV path or appropriate URL
+    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv'; // Update to your local CSV path or appropriate URL
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
