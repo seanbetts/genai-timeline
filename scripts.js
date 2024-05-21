@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv';
     const timeline = document.getElementById('timeline');
+    const searchInput = document.getElementById('search-bar');
     let currentYear = '';
-    let eventIndex = 0;
     const events = [];
 
     fetch(csvUrl)
@@ -20,102 +20,65 @@ document.addEventListener('DOMContentLoaded', function () {
                         currentYear = event.year;
                         createYearSection(currentYear);
                     }
-                    appendEvent(event);
+                    appendEvent(event, index % 2 === 0 ? 'left' : 'right');
                 }
             });
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => console.error('Error fetching CSV:', error));
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase();
+        const filteredEvents = events.filter(event =>
+            event.headline.toLowerCase().includes(query) ||
+            event.date.toDateString().toLowerCase().includes(query)
+        );
+        displayFilteredEvents(filteredEvents);
+    });
 
     function parseRow(row) {
-        const regex = /([^,]+),(.+),([^,]+)$/;
-        const match = row.match(regex);
-        if (!match) return null;
+        let columns = row.split(',');
+        columns = columns.map(col => col.replace(/(^"|"$|\r)/g, '').trim());
+        if (columns.length < 3) return null;
 
-        const date = match[1].trim();
-        let headline = match[2].trim();
-        const link = match[3].trim();
-
-        if (headline.startsWith('"') && headline.endsWith('"')) {
-            headline = headline.slice(1, -1);
-        }
-
-        const [day, month, year] = date.split('/').map(num => parseInt(num, 10));
-        const eventDate = new Date(year, month - 1, day);
-        const formattedYear = eventDate.getFullYear();
-        const formattedMonth = eventDate.toLocaleString('default', { month: 'long' });
-        const formattedDay = eventDate.getDate();
+        const [date, headline, link] = columns;
+        const [day, month, year] = date.split('/');
+        const parsedDate = new Date(`${year}-${month}-${day}`);
+        if (isNaN(parsedDate)) return null;
 
         return {
-            date: `${formattedDay}/${formattedMonth}/${formattedYear}`,
-            headline: headline,
-            link: link,
-            year: formattedYear,
-            month: formattedMonth,
-            day: formattedDay,
-            eventIndex: eventIndex++,
-            element: createEventElement(formattedMonth, formattedDay, formattedYear, headline, link)
+            date: parsedDate,
+            year: parsedDate.getFullYear(),
+            headline: headline.trim(),
+            link: link.trim()
         };
     }
 
     function createYearSection(year) {
-        const yearSection = document.createElement('section');
-        yearSection.id = year;
-        yearSection.classList.add('year');
-        yearSection.innerHTML = `<h2>${year}</h2><div class="timeline"></div>`;
+        const yearSection = document.createElement('div');
+        yearSection.className = 'year-section';
+        yearSection.innerHTML = `<h2>${year}</h2>`;
         timeline.appendChild(yearSection);
     }
 
-    function appendEvent(event) {
-        const yearSection = document.getElementById(event.year).querySelector('.timeline');
-        yearSection.appendChild(event.element);
-    }
-
-    function createEventElement(month, day, year, headline, link) {
+    function appendEvent(event, side) {
         const eventElement = document.createElement('div');
-        eventElement.classList.add('event', eventIndex % 2 === 0 ? 'right' : 'left');
+        eventElement.className = `event ${side}`;
         eventElement.innerHTML = `
-            <span class="date">${month} ${day}, ${year}</span>
-            <p>${headline}</p>
-            <a href="${link}" target="_blank">READ MORE</a>
+            <div class="date">${event.date.toDateString()}</div>
+            <div class="headline"><a href="${event.link}" target="_blank">${event.headline}</a></div>
         `;
-        return eventElement;
+        timeline.appendChild(eventElement);
     }
 
-    document.getElementById('search-bar').addEventListener('input', function (e) {
-        const searchTerm = e.target.value.toLowerCase();
-        filterEvents(searchTerm);
-    });
-
-    function filterEvents(searchTerm) {
-        timeline.innerHTML = '<div class="timeline"></div>';
-        const filteredTimeline = timeline.querySelector('.timeline');
-        const fragment = document.createDocumentFragment();
-
-        let filteredEventIndex = 0;
-        events.forEach(event => {
-            const matches = event.headline.toLowerCase().includes(searchTerm) || event.date.toLowerCase().includes(searchTerm);
-            if (matches) {
-                const eventElementClone = event.element.cloneNode(true);
-                eventElementClone.classList.remove('left', 'right');
-                eventElementClone.classList.add(filteredEventIndex % 2 === 0 ? 'right' : 'left');
-                fragment.appendChild(eventElementClone);
-                filteredEventIndex++;
-            }
-        });
-
-        filteredTimeline.appendChild(fragment);
-        if (!searchTerm) restoreOriginalTimeline();
-    }
-
-    function restoreOriginalTimeline() {
+    function displayFilteredEvents(filteredEvents) {
         timeline.innerHTML = '';
         let currentYear = '';
-        events.forEach((event, index) => {
+        filteredEvents.forEach((event, index) => {
             if (currentYear !== event.year) {
                 currentYear = event.year;
-                createYearSection(event.year);
+                createYearSection(currentYear);
             }
-            appendEvent(event);
+            appendEvent(event, index % 2 === 0 ? 'left' : 'right');
         });
     }
 });
