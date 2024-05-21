@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const timeline = document.getElementById('timeline');
             const noResultsMessage = document.createElement('p');
             noResultsMessage.id = 'no-results';
-            noResultsMessage.textContent = 'No events found';
+            noResultsMessage.textContent = 'No Events Found';
             noResultsMessage.style.display = 'none';
             noResultsMessage.classList.add('no-results');
             timeline.parentNode.insertBefore(noResultsMessage, timeline);
@@ -32,16 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const eventDate = new Date(year, month - 1, day);
                 const formattedDate = eventDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+                const positionClass = index % 2 === 0 ? 'right' : 'left';
+                const circleClass = index % 2 === 0 ? 'circle-right' : 'circle-left';
                 const eventElement = document.createElement('div');
-                eventElement.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
+                eventElement.className = `event common-event-class ${positionClass}`;
                 eventElement.innerHTML = `
-                    <div class="circle"></div>
+                    <div class="circle ${circleClass}"></div>
                     <span class="date">${formattedDate}</span>
                     <p>${headline}</p>
                     <a href="${link}" target="_blank">READ MORE</a>
                 `;
                 return { year, eventElement };
             }).filter(Boolean);
+
 
             let currentYear = '';
             events.forEach(event => {

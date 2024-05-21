@@ -166,10 +166,17 @@ main {
     background-color: #ff00ff; /* Example color */
     border-radius: 50%;
     position: absolute;
-    left: -9px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
+}
+
+.circle-left {
+    left: 391px;
+}
+
+.circle-right {
+    right: 391px;
 }
 
 #no-results {
