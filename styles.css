@@ -175,6 +175,13 @@ main {
         width: 30%;
         max-width: 400px;
     }
+    h2 {
+        margin-block-start: 0px;
+        margin-bottom: 10px;
+    }
+    .timeline {
+        margin: 0px;
+    }
     .timeline::after {
         left: 10%;
     }
@@ -183,6 +190,12 @@ main {
         text-align: left !important;
         padding: 0 !important;
         margin-bottom: 30px;
+    }
+    .event .date {
+        font-size: 20px;
+    }
+    .event p {
+        font-size: 16px;
     }
     .event.left, .event.right {
         left: 15% !important;
