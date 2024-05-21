@@ -38,11 +38,11 @@ img {
 }
 
 #search-bar {
-    width: 25%;
+    width: 30%;
     max-width: 380px;
     padding: 0.5em;
     margin: 0.5em auto;
-    font-size: 0.8em;
+    font-size: 1em;
     border: 2px solid #333435;
     border-radius: 4px;
     background-color: #2a2b2d;
@@ -160,6 +160,18 @@ main {
     text-decoration: underline;
 }
 
+.circle {
+    width: 18px;
+    height: 18px;
+    background-color: #ff00ff; /* Example color */
+    border-radius: 50%;
+    position: absolute;
+    left: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
 #no-results {
     font-size: 2em;
     font-weight: bold;
@@ -199,5 +211,10 @@ main {
     }
     .event.left, .event.right {
         left: 15% !important;
+    }
+    .circle {
+        height: 15px;
+        width: 15px;
+        left: -32px;
     }
 }

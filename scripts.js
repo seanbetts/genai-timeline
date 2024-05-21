@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const timeline = document.getElementById('timeline');
             const noResultsMessage = document.createElement('p');
             noResultsMessage.id = 'no-results';
-            noResultsMessage.textContent = 'No Events Found';
+            noResultsMessage.textContent = 'No events found';
             noResultsMessage.style.display = 'none';
+            noResultsMessage.classList.add('no-results');
             timeline.parentNode.insertBefore(noResultsMessage, timeline);
 
             const events = rows.map((row, index) => {
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const [day, month, year] = date.split('/').map(Number);
                 
                 // Logging the date parts for verification
-                // console.log(`Parsed date: Day=${day}, Month=${month}, Year=${year}`);
+                console.log(`Parsed date: Day=${day}, Month=${month}, Year=${year}`);
                 
                 if (isNaN(day) || isNaN(month) || isNaN(year)) {
                     console.error(`Invalid date: ${date}`);
@@ -32,8 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const eventDate = new Date(year, month - 1, day);
                 const formattedDate = eventDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
                 const eventElement = document.createElement('div');
-                eventElement.className = `event ${index % 2 === 0 ? 'right' : 'left'}`;
+                eventElement.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
                 eventElement.innerHTML = `
+                    <div class="circle"></div>
                     <span class="date">${formattedDate}</span>
                     <p>${headline}</p>
                     <a href="${link}" target="_blank">READ MORE</a>
@@ -71,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     timeline.style.display = 'block';
                     filteredEvents.forEach((event, index) => {
                         const eventElementClone = event.eventElement.cloneNode(true);
-                        eventElementClone.classList.toggle('right', index % 2 === 0);
-                        eventElementClone.classList.toggle('left', index % 2 !== 0);
+                        eventElementClone.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
                         timeline.querySelector('.timeline').appendChild(eventElementClone);
                     });
                 }
@@ -91,8 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         const yearSection = document.getElementById(event.year).querySelector('.timeline');
                         const eventElementClone = event.eventElement.cloneNode(true);
-                        eventElementClone.classList.toggle('right', index % 2 === 0);
-                        eventElementClone.classList.toggle('left', index % 2 !== 0);
+                        eventElementClone.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
                         yearSection.appendChild(eventElementClone);
                     });
                 }
