@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv';
-    const csvUrl = 'timeline.csv';
+    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv';
+    // const csvUrl = 'timeline.csv';
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
