@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv'; // Update to your local CSV path or appropriate URL
+    // const csvUrl = 'https://raw.githubusercontent.com/seanbetts/genai-timeline/main/timeline.csv';
+    const csvUrl = 'timeline.csv';
     fetch(csvUrl)
         .then(response => response.text())
         .then(csvText => {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const [day, month, year] = date.split('/').map(Number);
                 
                 // Logging the date parts for verification
-                console.log(`Parsed date: Day=${day}, Month=${month}, Year=${year}`);
+                // console.log(`Parsed date: Day=${day}, Month=${month}, Year=${year}`);
                 
                 if (isNaN(day) || isNaN(month) || isNaN(year)) {
                     console.error(`Invalid date: ${date}`);

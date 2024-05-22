@@ -18,6 +18,7 @@ header {
 }
 
 .search {
+    font-size: 0.7em;
     padding: 0.1em 0;
     border-top: 1px solid #333435;
     border-bottom: 1px solid #333435;
@@ -222,6 +223,6 @@ main {
     .circle {
         height: 15px;
         width: 15px;
-        left: -32px;
+        left: -25px;
     }
 }
