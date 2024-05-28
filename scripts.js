@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const positionClass = index % 2 === 0 ? 'right' : 'left';
                 const circleClass = index % 2 === 0 ? 'circle-right' : 'circle-left';
                 const eventElement = document.createElement('div');
-                eventElement.className = `event common-event-class ${positionClass}`;
+                eventElement.className = `event ${positionClass}`;
                 eventElement.innerHTML = `
                     <div class="circle-container"><div class="circle ${circleClass}"></div></div>
                     <span class="date">${formattedDate}</span>
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     event.eventElement.querySelector('.date').textContent.toLowerCase().includes(searchTerm)
                 );
 
+                
                 timeline.innerHTML = '<div class="timeline"></div>';
 
                 if (filteredEvents.length === 0) {
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     timeline.style.display = 'block';
                     filteredEvents.forEach((event, index) => {
                         const eventElementClone = event.eventElement.cloneNode(true);
-                        eventElementClone.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
+                        eventElementClone.className = `event ${index % 2 === 0 ? 'right' : 'left'}`;
                         timeline.querySelector('.timeline').appendChild(eventElementClone);
                     });
                 }
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         const yearSection = document.getElementById(event.year).querySelector('.timeline');
                         const eventElementClone = event.eventElement.cloneNode(true);
-                        eventElementClone.className = `event common-event-class ${index % 2 === 0 ? 'right' : 'left'}`;
+                        eventElementClone.className = `event ${index % 2 === 0 ? 'right' : 'left'}`;
                         yearSection.appendChild(eventElementClone);
                     });
                 }
