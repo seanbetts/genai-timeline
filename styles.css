@@ -172,7 +172,7 @@ main {
 .circle {
     width: 18px;
     height: 18px;
-    background-color: #ff00ff; /* Example color */
+    background-color: #ff00ff;
     border-radius: 50%;
     transform: translateY(-50%);
 }

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>${headline}</p>
                     <a href="${link}" target="_blank">READ MORE</a>
                 `;
-                return { year, eventElement };
+                return { year, eventElement, positionClass, circleClass };
             }).filter(Boolean);
 
             let currentYear = '';
@@ -81,6 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         const yearSection = document.getElementById(event.year).querySelector('.timeline');
                         const eventElementClone = event.eventElement.cloneNode(true);
                         eventElementClone.className = `event ${index % 2 === 0 ? 'right' : 'left'}`;
+                        const circleContainer = eventElementClone.querySelector('.circle-container');
+                        const circle = circleContainer.querySelector('.circle');
+                        circle.className = `circle ${index % 2 === 0 ? 'circle-right' : 'circle-left'}`;
                         yearSection.appendChild(eventElementClone);
                     });
                 }
@@ -100,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         const yearSection = document.getElementById(event.year).querySelector('.timeline');
                         const eventElementClone = event.eventElement.cloneNode(true);
                         eventElementClone.className = `event ${index % 2 === 0 ? 'right' : 'left'}`;
+                        const circleContainer = eventElementClone.querySelector('.circle-container');
+                        const circle = circleContainer.querySelector('.circle');
+                        circle.className = `circle ${index % 2 === 0 ? 'circle-right' : 'circle-left'}`;
                         yearSection.appendChild(eventElementClone);
                     });
                 }
