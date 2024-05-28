@@ -43,8 +43,8 @@ img {
 }
 
 .logo {
-    height: 50px;
-    width: 100px;
+    height: 40px;
+    width: 80px;
     margin-left: 20px;
 }
 
@@ -60,13 +60,18 @@ img {
     margin-right: 20px;
 }
 .subscribe-button {
-    font-size: 0.7em;
-    font-weight: 600;
-    width: 100px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.6em;
+    font-weight: 500;
+    width: 90px;
+    height: 22px;
     background-color: #EA00D9;
     padding: 8px;
     color: #ffffff;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     cursor: pointer;
 }
