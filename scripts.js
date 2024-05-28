@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const eventElement = document.createElement('div');
                 eventElement.className = `event common-event-class ${positionClass}`;
                 eventElement.innerHTML = `
-                    <div class="circle ${circleClass}"></div>
+                    <div class="circle-container"><div class="circle ${circleClass}"></div></div>
                     <span class="date">${formattedDate}</span>
                     <p>${headline}</p>
                     <a href="${link}" target="_blank">READ MORE</a>

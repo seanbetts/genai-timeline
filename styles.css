@@ -161,23 +161,29 @@ main {
     text-decoration: underline;
 }
 
+.circle-container {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: 50%;
+    z-index: 100;
+}
+
 .circle {
     width: 18px;
     height: 18px;
     background-color: #ff00ff; /* Example color */
     border-radius: 50%;
-    position: absolute;
-    top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
 }
 
 .circle-left {
-    left: 391px;
+    float:inline-end;
+    margin-right: 7px;
 }
 
 .circle-right {
-    right: 391px;
+    margin-left: -40px;
 }
 
 #no-results {
@@ -224,5 +230,24 @@ main {
         height: 15px;
         width: 15px;
         left: -25px;
+    }
+
+    .circle-left {
+        float:inline-start;
+        margin-left: -8%;
+    }
+    
+    .circle-right {
+        margin-left: -8%;
+    }
+}
+
+@media (max-width: 440px) {
+    .circle-left {
+        margin-left: -9%;
+    }
+    
+    .circle-right {
+        margin-left: -9%;
     }
 }
