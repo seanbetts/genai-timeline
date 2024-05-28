@@ -27,15 +27,52 @@ header {
 img {
     height: 100%;
     width: 50%;
-    max-width: 600px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
 }
 
-.header-image {
-    width: 100%;
+.header-bar {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    width: 140px;
+}
+
+.logo {
+    height: 50px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.header-image {
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.subscribe {
+    width: 140px;
+    margin-right: 20px;
+}
+.subscribe-button {
+    font-size: 0.7em;
+    font-weight: 600;
+    width: 100px;
+    background-color: #EA00D9;
+    padding: 8px;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.subscribe a {
+    text-decoration: none;
 }
 
 #search-bar {
@@ -196,6 +233,12 @@ main {
 @media (max-width: 600px) {
     header {
         font-size: 1em;
+    }
+    .logo-container {
+        display: none;
+    }
+    .subscribe {
+        display: none;
     }
     #search-bar {
         width: 30%;
