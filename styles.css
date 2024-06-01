@@ -9,7 +9,6 @@ header {
     background-color: #1c1d1f;
     color: #EA00D9;
     font-size: 1.5em;
-    padding: 0.1em 0;
     text-align: center;
     position: -webkit-sticky;
     position: sticky;
@@ -27,12 +26,15 @@ header {
 img {
     height: 100%;
     width: 50%;
-    max-width: 500px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 600px;
     display: flex;
     justify-content: center;
 }
 
 .header-bar {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,12 +42,16 @@ img {
 
 .logo-container {
     width: 140px;
+    display: flex;
 }
 
 .logo {
-    height: 40px;
-    width: 80px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100px;
     margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .header-image {
@@ -57,7 +63,6 @@ img {
 
 .subscribe {
     width: 140px;
-    margin-right: 20px;
 }
 .subscribe-button {
     display: flex;
