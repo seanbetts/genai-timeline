@@ -24,15 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
             
             if (char === '"') {
                 if (insideQuotes && row[i + 1] === '"') {
-                    // Double quotes inside a quoted field
                     currentField += '"';
-                    i++; // Skip the next quote
+                    i++;
                 } else {
-                    // Toggle insideQuotes flag
                     insideQuotes = !insideQuotes;
                 }
             } else if (char === ',' && !insideQuotes) {
-                // End of field
                 fields.push(currentField.trim());
                 currentField = '';
             } else {
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         
-        // Push the last field
         fields.push(currentField.trim());
 
         if (fields.length !== 3) {
@@ -62,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createEventElement(event, index) {
         const formattedDate = event.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-        const positionClass = index % 2 === 0 ? 'right' : 'left';
-        const circleClass = index % 2 === 0 ? 'circle-right' : 'circle-left';
+        const positionClass = index % 2 === 0 ? 'left' : 'right';
+        const circleClass = index % 2 === 0 ? 'circle-left' : 'circle-right';
         const eventElement = document.createElement('div');
         eventElement.className = `event ${positionClass}`;
         eventElement.innerHTML = `
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             events = csvText.split('\n').slice(1)
                 .map(parseCSVRow)
                 .filter(Boolean)
-                .sort((a, b) => b.date - a.date);
+                .sort((a, b) => a.date - b.date);  // Sort from earliest to latest
             renderEvents();
             searchBar.addEventListener('input', handleSearch);
         })
