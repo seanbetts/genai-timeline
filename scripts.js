@@ -15,7 +15,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function parseCSVRow(row) {
-        const [date, headline, link] = row.split(',').map(item => item.trim().replace(/^"|"$/g, ''));
+        const fields = [];
+        let currentField = '';
+        let insideQuotes = false;
+        
+        for (let i = 0; i < row.length; i++) {
+            const char = row[i];
+            
+            if (char === '"') {
+                if (insideQuotes && row[i + 1] === '"') {
+                    // Double quotes inside a quoted field
+                    currentField += '"';
+                    i++; // Skip the next quote
+                } else {
+                    // Toggle insideQuotes flag
+                    insideQuotes = !insideQuotes;
+                }
+            } else if (char === ',' && !insideQuotes) {
+                // End of field
+                fields.push(currentField.trim());
+                currentField = '';
+            } else {
+                currentField += char;
+            }
+        }
+        
+        // Push the last field
+        fields.push(currentField.trim());
+
+        if (fields.length !== 3) {
+            console.error(`Invalid row: ${row}`);
+            return null;
+        }
+
+        const [date, headline, link] = fields;
         const [day, month, year] = date.split('/').map(Number);
 
         if (isNaN(day) || isNaN(month) || isNaN(year)) {
