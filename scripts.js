@@ -113,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
             events = csvText.split('\n').slice(1)
                 .map(parseCSVRow)
                 .filter(Boolean)
-                .sort((a, b) => a.date - b.date);  // Sort from earliest to latest
+                // .sort((a, b) => a.date - b.date);  // Sort from earliest to latest
+                .sort((a, b) => b.date - a.date);  // Sort from latest to earliest
             renderEvents();
             searchBar.addEventListener('input', handleSearch);
         })
