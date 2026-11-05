@@ -30,7 +30,7 @@ class TimelineCLI(unittest.TestCase):
         self.batch = self.root / 'batch.json'
         self.plan = self.root / 'plan.json'
         self.browser = self.root / 'scripts.js'
-        shutil.copyfile(ROOT / 'scripts.js', self.browser)
+        shutil.copyfile(ROOT / 'scripts' / 'csv-parser.js', self.browser)
 
     def run_cli(self, *args, ok=True):
         result = subprocess.run(

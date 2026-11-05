@@ -1,13 +1,13 @@
-// Check proposed data with the site's existing parser, without fetching remote data.
+// Check proposed data with the shared publication parser, without network requests.
 import fs from 'node:fs';
 import vm from 'node:vm';
 
 try {
   const source = fs.readFileSync(process.argv[2], 'utf8');
   const start = source.indexOf('function parseCSVRow(row)');
-  const end = source.indexOf('function createEventElement', start);
+  const end = source.length;
   if (start < 0 || end <= start) {
-    throw new Error('Cannot locate the site CSV parser; update this checker if scripts.js changes.');
+    throw new Error('Cannot locate the publication CSV parser; update this checker if csv-parser.js changes.');
   }
   const errors = [];
   const context = vm.createContext({ console: { error: value => errors.push(String(value)) } });
@@ -31,7 +31,7 @@ try {
       throw new Error(`Site parser disagrees with CSV record ${i + 2}.`);
     }
   });
-  process.stdout.write(`Site parser accepted ${parsed.length} events.\n`);
+  process.stdout.write(process.argv.includes('--json') ? JSON.stringify(parsed.map(event => ({headline: event.headline, link: event.link}))) : `Publication parser accepted ${parsed.length} events.\n`);
 } catch (error) {
   process.stderr.write(`${error.message}\n`);
   process.exitCode = 1;

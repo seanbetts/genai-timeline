@@ -9,10 +9,11 @@ A curated timeline of generative AI milestones, research, products, industry dev
 | File or directory | Purpose |
 | --- | --- |
 | `timeline.csv` | Canonical events: `Date`, `Headline`, `Link` |
-| `index.html`, `styles.css`, `scripts.js` | Static page, styling, search and CSV rendering |
+| `index.html`, `styles.css`, `scripts.js` | Generated static page, styling and progressive search |
 | `sources/` | Locally hosted historical source documents |
 | `scripts/timeline.py` | Validate, preview and apply CSV batches |
-| `scripts/check-browser-parser.mjs` | Check proposed data with the site's actual CSV parser |
+| `scripts/build_site.py`, `templates/index.html`, `site.json` | Static publication generator, page template and explicit content revision date |
+| `scripts/csv-parser.js`, `scripts/check-browser-parser.mjs` | Shared publication parser and compatibility check for proposed CSV data |
 | `.agents/skills/updating-genai-timeline/` | Reusable content-update skill |
 | `docs/timeline-editorial.md` | Editorial scope and research guidance |
 | `docs/timeline-updates/` | Research windows and accepted, rejected or unresolved candidates |
@@ -22,15 +23,31 @@ The page displays events newest first, grouped by year, with search over headlin
 
 ## View locally
 
-There is no build step. Serve the directory with any static HTTP server, for example:
+Generate the static page after changes, then serve the directory with any static HTTP server:
 
 ```bash
+python3 scripts/build_site.py
 python3 -m http.server 8000
 ```
 
 Open `http://localhost:8000`.
 
-**The page fetches its CSV from GitHub `main`, even on localhost.** Local CSV edits will not appear there until the remote data changes, unless a browser test explicitly intercepts that CSV request and supplies local data. The helper previews local changes as a diff and checks their parsing without fetching remote data.
+The page serves every milestone and source link directly in its HTML. JavaScript only filters existing entries, so content and year navigation also work without it. Local generation uses local CSV data and makes no network requests. The CSV remains canonical; edit `templates/index.html` for page structure, then regenerate `index.html`.
+
+## Generating the page
+
+After an approved content update, set `content_modified` in `site.json` to the actual revision date (`YYYY-MM-DD`), then run:
+
+```bash
+python3 scripts/build_site.py
+python3 scripts/build_site.py --check
+```
+
+Commit the generated `index.html` and `sitemap.xml` alongside their source changes. `--check` never writes and fails if either generated file is stale. CI validates the data, checks freshness and runs the tests. This check reports failures; it is not a deployment gate for GitHub Pages, so run it before pushing. The revision date describes an editorial content change, not the newest event's date or each deployment.
+
+Milestone links use a hash of the headline: inserting entries or correcting dates/sources preserves their anchors. Editing a headline changes its anchor. Existing `#2026` style year links remain valid. Search clears when following a timeline fragment so the target is visible.
+
+`robots.txt` advertises the sitemap. JSON-LD describes the visible timeline; it does not imply eligibility for a particular search result feature. The social preview asset is `social-card.png` (1200 × 630), with editable code artwork in `templates/social-card.html`.
 
 ## Updating the data
 
@@ -98,9 +115,11 @@ python3 scripts/timeline.py validate
 
 Apply refuses a stale source or a result that differs from the preview. If the source or batch changes, generate and review a new plan. It writes atomically, preserves existing row bytes and file mode, inserts new or date-corrected rows chronologically, and retains LF/CRLF and trailing-newline conventions. The helper has no delete command.
 
+After applying an approved batch, update `site.json` and regenerate/check the page as above.
+
 Each field must be non-empty, dates must be real `DD/MM/YYYY` calendar dates, and each event must occupy one physical line. Duplicate headlines are compared without case or whitespace differences. Distinct events may share a source URL. New links must be HTTP(S) with no whitespace, double quotes or angle brackets. Existing legacy URL quote issues and date-order anomalies are reported as warnings and need separate review; they are not silently fixed. Validation does not check remote link availability or establish factual accuracy.
 
-Both preview and apply check proposed data using the site's existing parser. The checker locates `parseCSVRow` in `scripts.js`; if that implementation is refactored, update the checker and tests deliberately.
+Preview, apply and publication share `scripts/csv-parser.js`. The Node checker compares its interpretation with the Python CSV reader before generation. Existing legacy source-URL quote handling is preserved in rendered output and remains a warning in CSV validation.
 
 Record accepted decisions, specific exclusions, unresolved evidence and publication status in a dated JSON file under `docs/timeline-updates/`. Existing records are examples, not an automated approval mechanism.
 
@@ -120,7 +139,8 @@ Do not overwrite an existing skill. Keep the checkout available while the symlin
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/timeline.py validate
+python3 scripts/build_site.py --check
 git diff --check
 ```
 
-The tests use temporary CSV files; they do not edit the canonical timeline or fetch websites. Keep changes scoped and review Git hooks before committing or pushing. A commit, a push, remote CSV readback and live-site verification are separate outcomes. Pushing `timeline.csv` to GitHub `main` changes the data source the page requests; confirm served data before claiming the live timeline is updated.
+The tests use temporary CSV files; they do not edit the canonical timeline or fetch websites. Keep changes scoped and review Git hooks before committing or pushing. A commit, a push, remote CSV readback and live-site verification are separate outcomes. Pushing generated HTML to GitHub `main` publishes through GitHub Pages. Confirm the served HTML and site behavior before claiming the live timeline is updated. Use Search Console URL Inspection after publication to verify Google's view; analytics installation alone does not establish Search Console verification.

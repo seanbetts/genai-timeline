@@ -196,7 +196,7 @@ def main():
     for name in ('validate', 'preview', 'apply'):
         command = sub.add_parser(name)
         command.add_argument('--csv', type=Path, default=ROOT / 'timeline.csv')
-        command.add_argument('--browser-script', type=Path, default=ROOT / 'scripts.js')
+        command.add_argument('--browser-script', type=Path, default=ROOT / 'scripts' / 'csv-parser.js')
         if name != 'validate':
             command.add_argument('input', type=Path)
         if name == 'preview':

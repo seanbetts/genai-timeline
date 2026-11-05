@@ -46,8 +46,12 @@ The four exclusions recorded on 5 November 2026 apply only to Kimi K2.5, GLM-5, 
 
 ## Mechanical and publication boundaries
 
-`timeline.csv` has `Date`, `Headline`, `Link` columns. Dates use `DD/MM/YYYY`. Each event occupies one physical line because the site parser splits on newline before parsing fields. New source links must be HTTP(S), with no whitespace or unescaped quote characters. Historical HTTP links remain supported.
+`timeline.csv` has `Date`, `Headline`, `Link` columns. Dates use `DD/MM/YYYY`. Each event occupies one physical line because the publication parser splits on newline before parsing fields. New source links must be HTTP(S), with no whitespace or unescaped quote characters. Historical HTTP links remain supported.
 
-Use the helper to preview changes and validate the actual site parser. Preserve original row bytes, relative order and newline conventions. Existing ordering or URL warnings need explicit attention; they are not silently repaired during unrelated updates.
+Use the helper to preview changes and validate the shared publication parser. Preserve original row bytes, relative order and newline conventions. Existing ordering or URL warnings need explicit attention; they are not silently repaired during unrelated updates.
 
-Applying CSV changes, committing, pushing, and verifying the served site are distinct outcomes. Honour authorization already given for each. A local web server still loads the remote GitHub CSV unless browser requests are explicitly redirected for testing; local rendering alone does not prove local data was displayed.
+Applying CSV changes, committing, pushing, and verifying the served site are distinct outcomes. Honour authorization already given for each. The static page uses local generated HTML. Regenerate after approved source changes and distinguish local checks from remote readback and live-site verification.
+
+## Static publication
+
+The CSV remains canonical. Generate committed HTML and sitemap with `python3 scripts/build_site.py` after approved changes; set the actual content revision date in `site.json`. Run `--check` before committing. JavaScript filters existing HTML and makes no CSV fetch. Historical update records describe the publication mechanism at their time; current instructions in README.md take precedence.

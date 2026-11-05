@@ -34,6 +34,8 @@ python3 scripts/timeline.py validate
 
 Show the preview before applying unapproved candidates. Existing approval of the specific entries is sufficient; do not ask for it again. If the CSV changes after preview, regenerate and review the plan. The helper preserves historical rows and reports legacy warnings; investigate those separately within the requested scope.
 
+After approved content changes, set `content_modified` in `site.json` to the actual revision date, run `python3 scripts/build_site.py`, then `python3 scripts/build_site.py --check`. Include generated HTML and sitemap with the source changes; see the README publication workflow.
+
 Create or update a dated JSON record in `docs/timeline-updates/` with the research window, category checks, accepted events and sources, specific rejections, unresolved candidates, and publication status. The current record is an example, not a fixed schema requiring every historical detail.
 
-Report what changed, checks performed, unresolved issues, and whether the work is local, committed, pushed, or live-verified. Commit and push require their own user authorization; check hooks first. The page fetches CSV from GitHub `main`, including when served locally.
+Report what changed, checks performed, unresolved issues, and whether the work is local, committed, pushed, or live-verified. Commit and push require their own user authorization; check hooks first. The page serves generated HTML; pushing CSV alone leaves the visible timeline stale. Verify generated output before publication and served HTML afterward.
