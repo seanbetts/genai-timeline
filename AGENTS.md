@@ -2,6 +2,8 @@
 
 This is The Blueprint's static Generative AI Timeline. `timeline.csv` is the canonical event data; `index.html`, `styles.css`, and `scripts.js` render it. Generate committed HTML and sitemap with `python3 scripts/build_site.py`; no package installation is needed. Edit `templates/index.html`, not generated `index.html`.
 
+SEO work must preserve the existing visible layout, copy, controls and search behavior unless the editor explicitly requests changes to them.
+
 ## Timeline content work
 
 Use the repository skill at [.agents/skills/updating-genai-timeline/SKILL.md](.agents/skills/updating-genai-timeline/SKILL.md) for research, coverage reviews, and content updates. Its editorial guidance and dated decision records preserve the timeline's scope and the editor's choices. This does not apply to unrelated UI work.

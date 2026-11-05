@@ -32,7 +32,7 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000`.
 
-The page serves every milestone and source link directly in its HTML. JavaScript only filters existing entries, so content and year navigation also work without it. Local generation uses local CSV data and makes no network requests. The CSV remains canonical; edit `templates/index.html` for page structure, then regenerate `index.html`.
+The page serves every milestone and source link directly in its HTML. JavaScript only filters existing entries, so timeline content also works without it. Local generation uses local CSV data and makes no network requests. The CSV remains canonical; edit `templates/index.html` for page structure, then regenerate `index.html`.
 
 ## Generating the page
 
@@ -45,9 +45,9 @@ python3 scripts/build_site.py --check
 
 Commit the generated `index.html` and `sitemap.xml` alongside their source changes. `--check` never writes and fails if either generated file is stale. CI validates the data, checks freshness and runs the tests. This check reports failures; it is not a deployment gate for GitHub Pages, so run it before pushing. The revision date describes an editorial content change, not the newest event's date or each deployment.
 
-Milestone links use a hash of the headline: inserting entries or correcting dates/sources preserves their anchors. Editing a headline changes its anchor. Existing `#2026` style year links remain valid. Search clears when following a timeline fragment so the target is visible.
+Milestone links use a hash of the headline: inserting entries or correcting dates/sources preserves their anchors. Editing a headline changes its anchor. Existing `#2026` style year links remain valid. Milestone IDs support direct links without adding visible permalink controls. The original page layout, search placeholder and filtering behavior are preserved.
 
-`robots.txt` advertises the sitemap. JSON-LD describes the visible timeline; it does not imply eligibility for a particular search result feature. The social preview asset is `social-card.png` (1200 × 630), with editable code artwork in `templates/social-card.html`.
+`robots.txt` advertises the sitemap. JSON-LD describes the visible timeline; it does not imply eligibility for a particular search result feature. Sharing previews use the original `genai-timeline-logo.png` asset. The original browser tab title is retained.
 
 ## Updating the data
 

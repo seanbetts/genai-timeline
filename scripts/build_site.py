@@ -31,7 +31,6 @@ def date_label(date):
 def render_page(rows, modified):
     revision_date(modified)
     ordered = sorted(rows, key=date_key, reverse=True)
-    years = list(dict.fromkeys(date_key(row).year for row in ordered))
     sections, listing, current = [], [], None
     for i, row in enumerate(ordered):
         date = date_key(row)
@@ -47,10 +46,9 @@ def render_page(rows, modified):
         sections.append(f'<article id="{ident}" class="event {side}">'
                         f'<div class="circle-container" aria-hidden="true"><div class="circle circle-{side}"></div></div>'
                         f'<time datetime="{date.date().isoformat()}" class="date">{date_label(date)}</time>'
-                        f'<h3>{headline}</h3><div class="event-links">'
-                        f'<a href="{link}" target="_blank" rel="noopener">READ MORE<span class="visually-hidden">: {headline}</span></a> '
-                        f'<a class="permalink" href="#{ident}" aria-label="Link to this milestone: {html.escape(row["Headline"], quote=True)}">#</a>'
-                        '</div></article>')
+                        f'<p>{headline}</p>'
+                        f'<a href="{link}" target="_blank" rel="noopener" aria-label="Read more: {html.escape(row["Headline"], quote=True)}">READ MORE</a>'
+                        '</article>')
         listing.append({'@type': 'ListItem', 'position': i + 1, 'item': {
             '@type': 'CreativeWork', '@id': URL + '#' + ident,
             'url': URL + '#' + ident, 'name': row['Headline'],
@@ -73,8 +71,7 @@ def render_page(rows, modified):
     encoded = json.dumps(schema, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     replacements = {'COUNT': str(len(rows)), 'MODIFIED': modified,
                     'MODIFIED_LABEL': date_label(revision_date(modified)),
-                    'SCHEMA': encoded, 'EVENTS': '\n'.join(sections),
-                    'YEARS': ' '.join(f'<a href="#{year}">{year}</a>' for year in years)}
+                    'SCHEMA': encoded, 'EVENTS': '\n'.join(sections)}
     template = (ROOT / 'templates/index.html').read_text()
     return re.sub(r'@@([A-Z_]+)@@', lambda match: replacements[match[1]], template)
 

@@ -1,50 +1,35 @@
-// Progressive enhancement: all milestones and sources are already in the HTML.
+// All timeline content is served in HTML; search retains the original behavior.
 document.addEventListener('DOMContentLoaded', () => {
     const search = document.getElementById('search-bar');
     const sections = [...document.querySelectorAll('#timeline .year')];
     const cards = [...document.querySelectorAll('#timeline .event')];
-    const status = document.getElementById('search-status');
     const empty = document.getElementById('no-results');
-    const navigation = [...document.querySelectorAll('.year-navigation a')];
     const entries = cards.map(card => ({
         card,
-        text: `${card.querySelector('h3').textContent} ${card.querySelector('time').textContent}`.toLocaleLowerCase('en-GB')
+        headline: card.querySelector('p').textContent.toLowerCase(),
+        date: card.querySelector('time').textContent.toLowerCase()
     }));
 
     function filter() {
-        const term = search.value.trim().toLocaleLowerCase('en-GB');
+        const term = search.value.toLowerCase();
         let count = 0;
-        entries.forEach(({card, text}) => {
-            card.hidden = !text.includes(term);
-            if (!card.hidden) count++;
+        entries.forEach(({card, headline, date}) => {
+            card.hidden = !(headline.includes(term) || date.includes(term));
+            if (card.hidden) return;
+            const left = count % 2 === 0;
+            card.classList.toggle('left', left);
+            card.classList.toggle('right', !left);
+            const circle = card.querySelector('.circle');
+            circle.classList.toggle('circle-left', left);
+            circle.classList.toggle('circle-right', !left);
+            count++;
         });
         sections.forEach(section => {
             section.hidden = !section.querySelector('.event:not([hidden])');
         });
-        navigation.forEach(link => {
-            link.hidden = document.getElementById(link.hash.slice(1)).hidden;
-        });
         empty.hidden = count !== 0;
-        status.hidden = !term;
-        status.textContent = term ? `${count} ${count === 1 ? 'milestone' : 'milestones'} found` : '';
     }
 
-    function revealHash() {
-        const target = document.getElementById(location.hash.slice(1));
-        if (!target || !target.closest('#timeline')) return;
-        search.value = '';
-        filter();
-        target.scrollIntoView();
-    }
-
-    document.getElementById('search-controls').hidden = false;
     search.addEventListener('input', filter);
-    window.addEventListener('hashchange', revealHash);
-    // Clicking the same fragment again does not trigger hashchange.
-    document.addEventListener('click', event => {
-        const link = event.target.closest('a[href^="#"]');
-        if (link && link.hash === location.hash) revealHash();
-    });
     filter();
-    revealHash();
 });

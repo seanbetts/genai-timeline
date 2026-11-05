@@ -40,6 +40,16 @@ class BuildSite(unittest.TestCase):
         self.assertEqual(len(events), len({e['id'] for e in events}))
         self.assertNotIn('raw.githubusercontent.com', text)
 
+    def test_presentation_matches_original_scope(self):
+        row = dict(Date='01/01/2026', Headline='Milestone', Link='https://example.com')
+        tags = Elements(self.site.render_page([row], '2026-11-05')).tags
+        search = next(a for t,a in tags if t == 'input' and a.get('id') == 'search-bar')
+        self.assertEqual(search['placeholder'], '🔍 Search...')
+        self.assertEqual(search['type'], 'text')
+        self.assertFalse(any(t in ('nav', 'footer') for t,a in tags))
+        self.assertFalse(any(a.get('class') in ('permalink', 'introduction') for t,a in tags))
+        self.assertTrue(any(t == 'p' for t,a in tags))
+
     def test_html_and_jsonld_escape_headlines_and_links(self):
         row = dict(Date='01/01/2026', Headline='A </script><script>alert("x")</script> & B',
                    Link='https://example.com/?a=1&b=2')

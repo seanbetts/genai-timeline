@@ -25,3 +25,11 @@ Escaped user content; reproducible output; stale output in CI; no-JS visibility;
 - Shared parser moved into scripts/csv-parser.js and is used by both helper validation and publication; existing --browser-script argument remains supported for fixtures/compatibility. Legacy malformed quote is interpreted consistently without changing source CSV.
 - Skill validator passes; read-only future-update scenario confirms date update, regeneration/check and generated files must accompany approved CSV edits. CI catches stale output but is not a GitHub Pages deployment gate, documented explicitly.
 - Social artwork is code-authored and rendered to a 1200×630 PNG with Playwright; no image-generation service or new runtime package needed.
+
+## Scope correction after local inspection
+
+The editor rejected the added visible content, navigation, permalink controls and changed search appearance. Restored original header markup, CSS, search placeholder and input type, headline paragraphs and empty-state copy. Removed introduced navigation, footer, introduction, visible permalink controls and search count. Search again alternates filtered entries from left to right and retains original substring matching. Generated static HTML and invisible SEO metadata remain. Prior assertions about authorisation of visible changes were an implementation error; the user explicitly requires visual and functional preservation. Corrections remain uncommitted for inspection.
+
+Correction verification: 21 tests pass. Playwright comparison against the pre-SEO commit at 1440px and 390px confirms identical header/search geometry, original placeholder, and first 12 visible cards (text, dates, link/circle positions and card bounds), both unfiltered and searching ChatGPT. Empty-state copy also matches. Local server remains on 8873; no commit or push of corrections.
+
+Following editor approval, restored the original browser title and sharing image, updated image dimensions to the original asset, and removed the unused replacement artwork and its template. Retained meta description, structured data, sitemap, robots.txt and static generation.
