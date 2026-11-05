@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Generative AI Timeline"
+  short_description: "Research and maintain The Blueprint AI timeline"
+  default_prompt: "Use $updating-genai-timeline to research and propose the next timeline update."

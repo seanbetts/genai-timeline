@@ -1,0 +1,597 @@
+{
+  "recorded_on": "2026-11-05",
+  "research_window": {
+    "from": "2025-12-18",
+    "through": "2026-11-05"
+  },
+  "coverage_assessment": "Broad curated review, expanded through a second category/month gap audit; not an exhaustive event inventory.",
+  "provenance": "Backfilled from this chat and the committed CSV changes. This is an editorial decision record, not a fresh independent verification of every linked source.",
+  "baseline_commit": "76cf8ec",
+  "data_commit": "ac68216",
+  "data_sha256": "448559c033a8bbf3970c56589ec7b5eb67d6f664d26c5ed002b5c7704b245b8d",
+  "latest_selected_event": "2026-11-04",
+  "category_checks": [
+    {
+      "category": "models and capabilities",
+      "status": "reviewed"
+    },
+    {
+      "category": "agents and products",
+      "status": "reviewed"
+    },
+    {
+      "category": "creative tools and culture",
+      "status": "reviewed"
+    },
+    {
+      "category": "infrastructure and standards",
+      "status": "reviewed"
+    },
+    {
+      "category": "science and physical AI",
+      "status": "reviewed"
+    },
+    {
+      "category": "adoption and work",
+      "status": "reviewed"
+    },
+    {
+      "category": "industry and business",
+      "status": "reviewed"
+    },
+    {
+      "category": "law and rights",
+      "status": "reviewed"
+    },
+    {
+      "category": "governance and safety",
+      "status": "reviewed"
+    }
+  ],
+  "accepted": [
+    {
+      "Date": "18/12/2025",
+      "Headline": "OpenAI releases GPT-5.2-Codex",
+      "Link": "https://openai.com/index/introducing-gpt-5-2-codex/"
+    },
+    {
+      "Date": "18/12/2025",
+      "Headline": "Anthropic publishes Agent Skills as an open standard for use across AI platforms",
+      "Link": "https://claude.com/resources/articles/organization-skills-and-directory"
+    },
+    {
+      "Date": "29/12/2025",
+      "Headline": "Meta announces its acquisition of personal AI agent company Manus",
+      "Link": "https://apnews.com/article/aaf01029923011a403ceeb949cf3db5e"
+    },
+    {
+      "Date": "05/01/2026",
+      "Headline": "NVIDIA announces the Rubin AI computing platform",
+      "Link": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer"
+    },
+    {
+      "Date": "05/01/2026",
+      "Headline": "Boston Dynamics unveils the product version of Atlas and announces manufacturing and planned deployments",
+      "Link": "https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/"
+    },
+    {
+      "Date": "07/01/2026",
+      "Headline": "OpenAI introduces ChatGPT Health, a dedicated experience for health and wellness",
+      "Link": "https://openai.com/index/introducing-chatgpt-health/"
+    },
+    {
+      "Date": "11/01/2026",
+      "Headline": "Google introduces the Universal Commerce Protocol, an open standard for agentic shopping",
+      "Link": "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/"
+    },
+    {
+      "Date": "12/01/2026",
+      "Headline": "Apple and Google announce a partnership to base the next generation of Apple Foundation Models on Gemini",
+      "Link": "https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/"
+    },
+    {
+      "Date": "12/01/2026",
+      "Headline": "Anthropic introduces Cowork in research preview, bringing agentic capabilities to everyday knowledge work",
+      "Link": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+      "Date": "14/01/2026",
+      "Headline": "Google introduces Personal Intelligence, connecting Gemini to information across Google apps",
+      "Link": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence/"
+    },
+    {
+      "Date": "29/01/2026",
+      "Headline": "Personal AI agent project adopts the OpenClaw name and announces a new release",
+      "Link": "https://openclaw.ai/blog/introducing-openclaw"
+    },
+    {
+      "Date": "29/01/2026",
+      "Headline": "Google opens Project Genie to US AI Ultra subscribers to create and explore interactive AI-generated worlds",
+      "Link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/"
+    },
+    {
+      "Date": "02/02/2026",
+      "Headline": "OpenAI launches the Codex desktop app for managing multiple AI agents",
+      "Link": "https://openai.com/index/introducing-the-codex-app/"
+    },
+    {
+      "Date": "02/02/2026",
+      "Headline": "SpaceX acquires xAI",
+      "Link": "https://ir.tesla.com/_flysystem/s3/sec/000110465926053166/tm2611837d1_10ka-gen.pdf"
+    },
+    {
+      "Date": "03/02/2026",
+      "Headline": "International AI Safety Report 2026 published",
+      "Link": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026"
+    },
+    {
+      "Date": "05/02/2026",
+      "Headline": "Anthropic releases Claude Opus 4.6",
+      "Link": "https://www.anthropic.com/news/claude-opus-4-6"
+    },
+    {
+      "Date": "05/02/2026",
+      "Headline": "OpenAI releases GPT-5.3-Codex",
+      "Link": "https://openai.com/index/introducing-gpt-5-3-codex/"
+    },
+    {
+      "Date": "05/02/2026",
+      "Headline": "OpenAI introduces Frontier, a platform for building and managing enterprise AI agents",
+      "Link": "https://openai.com/index/introducing-openai-frontier/"
+    },
+    {
+      "Date": "06/02/2026",
+      "Headline": "StrongDM publishes its software factory approach, using agents to write and validate code without human code review",
+      "Link": "https://factory.strongdm.ai/"
+    },
+    {
+      "Date": "09/02/2026",
+      "Headline": "OpenAI begins testing advertising in ChatGPT in the US",
+      "Link": "https://help.openai.com/en/articles/20001047-ads-in-chatgp"
+    },
+    {
+      "Date": "12/02/2026",
+      "Headline": "ByteDance introduces Seedance 2.0 for multimodal audio and video generation",
+      "Link": "https://seed.bytedance.com/en/blog/seedance-2-0-official-launch"
+    },
+    {
+      "Date": "16/02/2026",
+      "Headline": "Alibaba releases Qwen3.5, a natively multimodal open-weight model",
+      "Link": "https://www.alibabagroup.com/en-US/document-1960233590314762240"
+    },
+    {
+      "Date": "16/02/2026",
+      "Headline": "India hosts the AI Impact Summit in New Delhi",
+      "Link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2228777&lang=2&reg=48"
+    },
+    {
+      "Date": "17/02/2026",
+      "Headline": "Anthropic releases Claude Sonnet 4.6",
+      "Link": "https://www.anthropic.com/news/claude-sonnet-4-6"
+    },
+    {
+      "Date": "19/02/2026",
+      "Headline": "Google introduces Gemini 3.1 Pro",
+      "Link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+    },
+    {
+      "Date": "25/02/2026",
+      "Headline": "Perplexity introduces Computer, a multi-model AI agent for completing complex projects",
+      "Link": "https://www.perplexity.ai/changelog/what-we-shipped---february-27-2026"
+    },
+    {
+      "Date": "27/02/2026",
+      "Headline": "US defence leadership announces plans to designate Anthropic a supply-chain risk following a dispute over AI safeguards",
+      "Link": "https://www.anthropic.com/news/statement-comments-secretary-war"
+    },
+    {
+      "Date": "05/03/2026",
+      "Headline": "OpenAI releases GPT-5.4 with capabilities for coding, computer use and professional work",
+      "Link": "https://openai.com/index/introducing-gpt-5-4/"
+    },
+    {
+      "Date": "05/03/2026",
+      "Headline": "Anthropic publishes research on AI exposure and early evidence of labour-market impacts",
+      "Link": "https://www.anthropic.com/research/labor-market-impacts"
+    },
+    {
+      "Date": "09/03/2026",
+      "Headline": "Microsoft announces Copilot Cowork for delegating tasks across Microsoft 365, initially in preview",
+      "Link": "https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/"
+    },
+    {
+      "Date": "16/03/2026",
+      "Headline": "NVIDIA announces early access to GR00T N1.7 for general-purpose humanoid robot skills",
+      "Link": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world"
+    },
+    {
+      "Date": "17/03/2026",
+      "Headline": "Midjourney launches V8 in early-access alpha",
+      "Link": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
+    },
+    {
+      "Date": "31/03/2026",
+      "Headline": "OpenAI closes a funding round with $122bn in committed capital at an $852bn valuation",
+      "Link": "https://openai.com/index/accelerating-the-next-phase-ai/"
+    },
+    {
+      "Date": "07/04/2026",
+      "Headline": "Anthropic announces Claude Mythos Preview and Project Glasswing to help secure critical software",
+      "Link": "https://www.anthropic.com/glasswing"
+    },
+    {
+      "Date": "08/04/2026",
+      "Headline": "Meta introduces Muse Spark, the first model from Meta Superintelligence Labs",
+      "Link": "https://ai.meta.com/blog/introducing-muse-spark-msl"
+    },
+    {
+      "Date": "13/04/2026",
+      "Headline": "Stanford HAI publishes the 2026 AI Index Report",
+      "Link": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report"
+    },
+    {
+      "Date": "17/04/2026",
+      "Headline": "Anthropic introduces Claude Design for creating designs, prototypes, slides and other visual work",
+      "Link": "https://www.anthropic.com/news/claude-design-anthropic-labs"
+    },
+    {
+      "Date": "21/04/2026",
+      "Headline": "OpenAI introduces ChatGPT Images 2.0",
+      "Link": "https://openai.com/index/introducing-chatgpt-images-2-0/"
+    },
+    {
+      "Date": "23/04/2026",
+      "Headline": "OpenAI releases GPT-5.5",
+      "Link": "https://openai.com/index/introducing-gpt-5-5/"
+    },
+    {
+      "Date": "24/04/2026",
+      "Headline": "DeepSeek releases preview versions of its V4 open-weight models",
+      "Link": "https://api-docs.deepseek.com/updates/"
+    },
+    {
+      "Date": "26/04/2026",
+      "Headline": "OpenAI discontinues the Sora web and app experiences",
+      "Link": "https://openai.com/index/creating-with-sora-safely/"
+    },
+    {
+      "Date": "27/04/2026",
+      "Headline": "Adobe releases Firefly AI Assistant in public beta for coordinating creative workflows",
+      "Link": "https://blog.adobe.com/en/publish/2026/04/27/firefly-ai-assistant-public-beta"
+    },
+    {
+      "Date": "27/04/2026",
+      "Headline": "Microsoft and OpenAI announce an amended partnership agreement, expanding flexibility in cloud distribution",
+      "Link": "https://openai.com/index/next-phase-of-microsoft-partnership/"
+    },
+    {
+      "Date": "19/05/2026",
+      "Headline": "Google introduces Gemini 3.5, a new model family built for agentic workflows",
+      "Link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+    },
+    {
+      "Date": "19/05/2026",
+      "Headline": "Google announces Gemini Spark, a proactive personal AI agent that works around the clock",
+      "Link": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+    },
+    {
+      "Date": "19/05/2026",
+      "Headline": "Google introduces Gemini Omni for generating video from text, images and video prompts",
+      "Link": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+    },
+    {
+      "Date": "20/05/2026",
+      "Headline": "OpenAI publishes an AI-generated disproof of the Erdos unit-distance conjecture",
+      "Link": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/"
+    },
+    {
+      "Date": "28/05/2026",
+      "Headline": "Anthropic raises $65bn in Series H funding at a $965bn valuation",
+      "Link": "https://www.anthropic.com/news/series-h"
+    },
+    {
+      "Date": "08/06/2026",
+      "Headline": "Apple introduces Siri AI, powered by the next generation of Apple Intelligence",
+      "Link": "https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/"
+    },
+    {
+      "Date": "09/06/2026",
+      "Headline": "Anthropic launches Claude Fable 5 for general use and Claude Mythos 5 through restricted access",
+      "Link": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "Date": "12/06/2026",
+      "Headline": "Anthropic suspends access to Fable 5 and Mythos 5 following a US government export control directive",
+      "Link": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+      "Date": "30/06/2026",
+      "Headline": "Anthropic releases Claude Sonnet 5",
+      "Link": "https://www.anthropic.com/news/claude-sonnet-5"
+    },
+    {
+      "Date": "01/07/2026",
+      "Headline": "Anthropic restores global access to Claude Fable 5 following the lifting of US export controls",
+      "Link": "https://www.anthropic.com/news/redeploying-fable-5"
+    },
+    {
+      "Date": "09/07/2026",
+      "Headline": "OpenAI introduces ChatGPT Work for longer and more involved tasks",
+      "Link": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/"
+    },
+    {
+      "Date": "09/07/2026",
+      "Headline": "OpenAI releases the GPT-5.6 model family",
+      "Link": "https://openai.com/index/gpt-5-6/"
+    },
+    {
+      "Date": "20/07/2026",
+      "Headline": "US court grants final approval to the $1.5bn Anthropic copyright settlement over the acquisition and copying of books",
+      "Link": "https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/"
+    },
+    {
+      "Date": "21/07/2026",
+      "Headline": "OpenAI and Hugging Face disclose a security incident involving AI models during cybersecurity evaluations",
+      "Link": "https://openai.com/index/hugging-face-model-evaluation-security-incident/"
+    },
+    {
+      "Date": "23/07/2026",
+      "Headline": "Black Forest Labs introduces FLUX 3, a multimodal model family for video, image and audio generation",
+      "Link": "https://bfl.ai/blog/flux-3"
+    },
+    {
+      "Date": "24/07/2026",
+      "Headline": "Anthropic releases Claude Opus 5",
+      "Link": "https://www.anthropic.com/news/claude-opus-5"
+    },
+    {
+      "Date": "30/07/2026",
+      "Headline": "TIME reports serving sponsored content specifically to AI agents",
+      "Link": "https://digiday.com/media/time-has-started-serving-ads-to-ai-agents/"
+    },
+    {
+      "Date": "30/07/2026",
+      "Headline": "Google DeepMind introduces Gemini Robotics 2 for whole-body robot control",
+      "Link": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
+    },
+    {
+      "Date": "31/07/2026",
+      "Headline": "Munich court largely upholds GEMA copyright claims against AI music generator Suno",
+      "Link": "https://www.justiz.bayern.de/gerichte-und-behoerden/landgericht/muenchen-1/presse/2026/16.php"
+    },
+    {
+      "Date": "02/08/2026",
+      "Headline": "EU AI Act transparency requirements take effect",
+      "Link": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august"
+    },
+    {
+      "Date": "12/08/2026",
+      "Headline": "Stanford updates its observational study of AI exposure and employment among early-career workers",
+      "Link": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/"
+    },
+    {
+      "Date": "14/08/2026",
+      "Headline": "Cursor announces completion of its acquisition by SpaceX",
+      "Link": "https://prod.cursor.com/blog/joining-spacex"
+    },
+    {
+      "Date": "18/08/2026",
+      "Headline": "Anthropic publishes results on Claude-led protein design and analytical chemistry, including experimentally tested protein binders",
+      "Link": "https://www.anthropic.com/research/Claude-accelerates-protein-design"
+    },
+    {
+      "Date": "19/08/2026",
+      "Headline": "Stripe announces an agreement to acquire AI model gateway OpenRouter",
+      "Link": "https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter"
+    },
+    {
+      "Date": "01/09/2026",
+      "Headline": "Anthropic introduces Claude Fable 5.1 and Claude Mythos 5.1",
+      "Link": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    },
+    {
+      "Date": "02/09/2026",
+      "Headline": "Google introduces Gemini 3.8 Flash and Gemini 3.8 Flash Cyber",
+      "Link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+    },
+    {
+      "Date": "03/09/2026",
+      "Headline": "NVIDIA announces an agreement to acquire Hugging Face",
+      "Link": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/"
+    },
+    {
+      "Date": "03/09/2026",
+      "Headline": "OpenAI introduces GPT-6 Astra",
+      "Link": "https://openai.com/index/gpt-6-astra/"
+    },
+    {
+      "Date": "08/09/2026",
+      "Headline": "Meta launches Muse, a personal AI agent that works across apps and services",
+      "Link": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+    },
+    {
+      "Date": "08/09/2026",
+      "Headline": "Google DeepMind releases AlphaGenome Atlas, predicting the effects of nine billion human DNA variants",
+      "Link": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/"
+    },
+    {
+      "Date": "08/09/2026",
+      "Headline": "OpenAI publishes a proposed AI-generated solution to the Navier-Stokes Millennium Prize Problem",
+      "Link": "https://openai.com/index/navier-stokes-solution/"
+    },
+    {
+      "Date": "09/09/2026",
+      "Headline": "Suno launches v6 music-generation models developed with music-industry partners",
+      "Link": "https://suno.com/blog/introducing-v6"
+    },
+    {
+      "Date": "10/09/2026",
+      "Headline": "OpenAI introduces the Agents API for building and deploying AI agents",
+      "Link": "https://openai.com/index/introducing-the-agents-api/"
+    },
+    {
+      "Date": "16/09/2026",
+      "Headline": "Anthropic begins merging Cowork and chat into a unified Claude experience",
+      "Link": "https://claude.com/resources/articles/cowork-is-now-claude"
+    },
+    {
+      "Date": "22/09/2026",
+      "Headline": "Anthropic releases Claude Opus 5.5",
+      "Link": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
+      "Date": "22/09/2026",
+      "Headline": "OpenAI introduces GPT-6 Sol and GPT-6 Luna",
+      "Link": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    },
+    {
+      "Date": "28/09/2026",
+      "Headline": "ElevenLabs introduces Eleven v4 and Eleven v4 Turbo text-to-speech models",
+      "Link": "https://elevenlabs.io/blog/eleven-v4"
+    },
+    {
+      "Date": "28/09/2026",
+      "Headline": "Anthropic releases Claude Sonnet 5.5",
+      "Link": "https://www.anthropic.com/claude-sonnet-5-5"
+    },
+    {
+      "Date": "28/09/2026",
+      "Headline": "AMD announces an agreement to acquire World Labs",
+      "Link": "https://newsroom.amd.com/news/amd-acquire-world-labs/"
+    },
+    {
+      "Date": "29/09/2026",
+      "Headline": "OpenAI hosts DevDay 2026, introducing GPT-6.1 Sol and new ways for people and agents to work together across ChatGPT and Codex",
+      "Link": "https://openai.com/index/devday-2026-recap/"
+    },
+    {
+      "Date": "06/10/2026",
+      "Headline": "Mistral introduces Mistral Large 4",
+      "Link": "https://mistral.ai/news/mistral-large-4/"
+    },
+    {
+      "Date": "07/10/2026",
+      "Headline": "Anthropic releases Claude Haiku 5.5",
+      "Link": "https://www.anthropic.com/claude-haiku-5-5"
+    },
+    {
+      "Date": "08/10/2026",
+      "Headline": "Google introduces a universal Gemini agent for work across enterprise tools and workflows",
+      "Link": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+    },
+    {
+      "Date": "12/10/2026",
+      "Headline": "Character.ai announces voluntary Chapter 11 proceedings to pursue a court-supervised sale",
+      "Link": "https://blog.character.ai/an-update-on-character-ai/"
+    },
+    {
+      "Date": "21/10/2026",
+      "Headline": "OpenAI reports coordinated disclosure of critical PHP vulnerabilities discovered by AI agents",
+      "Link": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+    },
+    {
+      "Date": "24/10/2026",
+      "Headline": "UK government announces the AI Biosecurity Lab to strengthen resilience to biological threats",
+      "Link": "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab"
+    },
+    {
+      "Date": "26/10/2026",
+      "Headline": "Anthropic publicly files an S-1 registration statement for a proposed IPO",
+      "Link": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+    },
+    {
+      "Date": "04/11/2026",
+      "Headline": "OpenAI publishes results from an autonomous Linux vulnerability discovery and candidate patch-generation pipeline with human review",
+      "Link": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+    }
+  ],
+  "rejected": [
+    {
+      "Date": "27/01/2026",
+      "Headline": "Moonshot releases Kimi K2.5",
+      "Link": "https://www.kimi.com/en/blog/kimi-k2-5",
+      "reason": "Editor explicitly excluded this candidate; no further reason supplied.",
+      "scope": "This event only; not its company, author, family or future releases."
+    },
+    {
+      "Date": "11/02/2026",
+      "Headline": "Z.ai releases GLM-5",
+      "Link": "https://z.ai/blog/glm-5",
+      "reason": "Editor explicitly excluded this candidate; no further reason supplied.",
+      "scope": "This event only; not its company, author, family or future releases."
+    },
+    {
+      "Date": "28/10/2026",
+      "Headline": "Simon Willison publishes AI-generated game experiments",
+      "Link": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+      "reason": "Editor explicitly excluded this candidate; no further reason supplied.",
+      "scope": "This event only; not its company, author, family or future releases."
+    },
+    {
+      "Date": "04/11/2026",
+      "Headline": "OpenAI introduces Images 2.6",
+      "Link": "https://openai.com/index/introducing-images-2-6/",
+      "reason": "Editor explicitly excluded this candidate; no further reason supplied.",
+      "scope": "This event only; not its company, author, family or future releases."
+    }
+  ],
+  "unresolved": [
+    {
+      "Headline": "DeepSeek Engram conditional-memory research",
+      "Link": "https://arxiv.org/abs/2601.07372",
+      "note": "Reserve candidate; not included in the later approved audit list."
+    },
+    {
+      "Headline": "Claude Opus 4.7",
+      "Link": "https://www.anthropic.com/news/claude-opus-4-7",
+      "note": "Reserve model update; no inclusion decision recorded."
+    },
+    {
+      "Headline": "Claude Opus 4.8",
+      "Link": "https://www.anthropic.com/news/claude-opus-4-8",
+      "note": "Reserve model update; no inclusion decision recorded."
+    },
+    {
+      "Headline": "Promptwatch research on ChatGPT site-specific searches",
+      "Link": "https://promptwatch.com/data/chatgpt-site-operator-fanouts",
+      "note": "Reserve candidate. Findings describe additional site-specific searches, not abandonment of open-web search."
+    },
+    {
+      "Headline": "Artcraft creative-software demonstration",
+      "Link": "https://gizmodo.com/someone-vibe-coded-a-free-knockoff-of-adobe-creative-suite-2000823322",
+      "note": "Reserve cultural example; experimental alternatives are not established product parity."
+    },
+    {
+      "Headline": "AI-assisted television customisation demonstration",
+      "Link": "https://x.com/gathint/status/2111379569030939102",
+      "note": "Original post unavailable during review; screenshot in supplied presentation was inspected."
+    }
+  ],
+  "corrections": [
+    {
+      "event": "1957 perceptron and 1959 checkers papers",
+      "decision": "Swapped the two incorrectly assigned source links."
+    },
+    {
+      "event": "2025-03-05 Google AI Mode",
+      "decision": "Removed an extra empty CSV field that prevented rendering."
+    },
+    {
+      "event": "2026-09-29 OpenAI DevDay",
+      "decision": "Updated the accepted headline to explicitly mention GPT-6.1 Sol."
+    }
+  ],
+  "known_data_warnings": [
+    {
+      "event": "2025-05-07 Physical Turing Test",
+      "note": "Legacy URL has an unmatched trailing double quote; helper reports it without changing the data."
+    },
+    {
+      "note": "Two pre-existing chronological inversions remain in the CSV; helper reports them without sorting existing rows."
+    }
+  ],
+  "publication": {
+    "pushed_data_commit": "ac68216",
+    "live_site_verified": false
+  }
+}
